@@ -9,7 +9,6 @@ public class Buku01 {
         tahunTerbit = thn;
     }
     void tampilBuku(){
-        System.out.println("Daftar Buku: ");
         System.out.println("Kode: "+kodeBuku+" | Judul: "+judul+" | Tahun: "+tahunTerbit);
     }
 }

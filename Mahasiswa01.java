@@ -9,7 +9,6 @@ public class Mahasiswa01 {
         prodi = prd;
     }
     void tampilMahasiswa(){
-        System.out.println("Daftar Mahasiswa: ");
         System.out.println("NIM: "+nim+" | Nama: "+nama+" | Prodi: "+prodi);
     }
 }

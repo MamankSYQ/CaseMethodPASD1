@@ -17,13 +17,12 @@ public class Peminjaman01 {
         if (terlambat > 0){
             denda = terlambat * 2000;
         }
-        else{
+        else {
             terlambat = 0;
             denda = 0;
         }
     }
     void tampilPeminjaman(){
-        System.out.println("Setelah diurutkan (Denda terbesar): ");
         System.out.println(mhs.nama+" | "+buku.judul+" | Lama: "+lamaPinjam+" | Terlambat: "+terlambat+" | Denda: "+denda);
     }
 }
