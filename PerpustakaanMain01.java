@@ -47,12 +47,12 @@ public class PerpustakaanMain01 {
                     SistemPeminjaman01.tampilBuku(buku);
                     break;
                 case 3:
-                    System.out.println("Setelah diurutkan (Denda terbesar): ");
+                    System.out.println("Data Peminjaman: ");
                     SistemPeminjaman01.tampilPeminjaman(pjm);
                     break;
                 case 4:
                     SistemPeminjaman01.PengurutanDenda(pjm);
-                    System.out.println("Setelah diurutkan: ");
+                    System.out.println("Setelah diurutkan (Denda terbesar): ");
                     SistemPeminjaman01.tampilPeminjaman(pjm);
                     break;
                 case 5:
