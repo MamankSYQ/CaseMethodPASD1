@@ -60,6 +60,7 @@ public class PerpustakaanMain01 {
                     System.out.print("Masukkan NIM: ");
                     String nim = sc.nextLine();
                     SistemPeminjaman01.cariNim(pjm, nim);
+                    break;
                 case 0:
                     break;
                 default:
