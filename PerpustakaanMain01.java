@@ -32,6 +32,8 @@ public class PerpustakaanMain01 {
             System.out.println("3. Tampilkan Peminjaman");
             System.out.println("4. Urutkan Berdasarkan Denda");
             System.out.println("5. Cari Berdasarkan NIM");
+            System.out.println("6. Tambah Data Peminjaman");
+            System.out.println("7. Tampilkan Statistik");
             System.out.println("0. Keluar");
             System.out.print("Pilih: ");
             n = sc.nextInt();
@@ -60,6 +62,12 @@ public class PerpustakaanMain01 {
                     System.out.print("Masukkan NIM: ");
                     String nim = sc.nextLine();
                     SistemPeminjaman01.cariNim(pjm, nim);
+                    break;
+                case 6:
+                    pjm = SistemPeminjaman01.tambahPeminjaman(pjm, mhs, buku, sc);
+                    break;
+                case 7:
+                    SistemPeminjaman01.tampilStatistik(pjm);
                     break;
                 case 0:
                     break;

@@ -1,3 +1,4 @@
+import java.util.Scanner;
 public class SistemPeminjaman01 {
     static void tampilMahasiswa(Mahasiswa01[] mhs){
         for (Mahasiswa01 m : mhs){
@@ -82,4 +83,70 @@ public class SistemPeminjaman01 {
             System.out.println("Data tidak ditemukan");
         }
     }
+    static Peminjaman01[] tambahPeminjaman(Peminjaman01[] pjm, Mahasiswa01[] mhs, Buku01[] buku, Scanner sc){
+        System.out.print("Masukkan NIM Mahasiswa: ");
+        String nim = sc.nextLine();
+
+        Mahasiswa01 mhsDitemukan = null;
+        for (Mahasiswa01 m : mhs){
+            if (m.nim.equals(nim)){
+                mhsDitemukan = m;
+                break;
+            }
+        }
+        if (mhsDitemukan == null){
+            System.out.println("NIM tidak ditemukan");
+            return pjm;
+        }
+
+        System.out.print("Masukkan kode buku: ");
+        String kode = sc.nextLine();
+
+        Buku01 bukuDitemukan = null;
+        for (Buku01 b : buku){
+            if (b.kodeBuku.equals(kode)){
+                bukuDitemukan = b;
+                break;
+            }
+        }
+        if (bukuDitemukan == null){
+            System.out.println("Kode buku tidak ditemukan");
+            return pjm;
+        }
+
+        System.out.println("Masukkan lama pinjam(hari):");
+        int lama = Integer.parseInt(sc.nextLine());
+
+        Peminjaman01 baru = new Peminjaman01(mhsDitemukan, bukuDitemukan, lama);
+        Peminjaman01[] pjmBaru = new Peminjaman01[pjm.length + 1];
+        for (int i = 0; i < pjm.length; i++){
+            pjmBaru[i] = pjm[i];
+        }
+
+        pjmBaru[pjm.length] = baru;
+
+        System.out.println("Data peminjaman berhasil ditambahkan!");
+        return pjmBaru;
+    }
+    static void tampilStatistik(Peminjaman01[] pjm) {
+        int totalDenda = 0;
+        int jumlahTerlambat = 0;
+        int jumlahTepat = 0;
+
+        for (Peminjaman01 p : pjm) {
+            totalDenda += p.denda;          
+
+            if (p.terlambat > 0) {
+                jumlahTerlambat++;         
+            } else {
+                jumlahTepat++;             
+            }
+        }
+
+        System.out.println("========== STATISTIK PEMINJAMAN ==========");
+        System.out.println("Total seluruh denda    : Rp" + totalDenda);
+        System.out.println("Jumlah terlambat       : " + jumlahTerlambat + " peminjaman");
+        System.out.println("Jumlah tepat waktu     : " + jumlahTepat    + " peminjaman");
+        System.out.println("==========================================");
+}
 }
